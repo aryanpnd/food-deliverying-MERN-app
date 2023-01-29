@@ -21,7 +21,7 @@ export default function Footer() {
                             <div className="col-md-5 col-12">
                                 {/* Email input */}
                                 <div className="form-outline mb-4 ">
-                                    <input type="email" id="form5Example27" className="form-control bg-dark" />
+                                    <input type="email" id="form5Example27" className="form-control bg-dark text-white pl" placeholder='Email address'/>
                                     <label className="form-label text-white" htmlFor="form5Example27">Email address</label>
                                 </div>
                             </div>
@@ -44,7 +44,6 @@ export default function Footer() {
             {/* Copyright */}
             <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 © 2020 Copyright:
-                <a className="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
             {/* Copyright */}
         </footer>
