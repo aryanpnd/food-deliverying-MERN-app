@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 
 const mongoURI = "mongodb+srv://mernfirstapp:OK7IkPOpEHPUkoYZ@cluster0.zeyn9ki.mongodb.net/foodapp?retryWrites=true&w=majority";
 
+// const mongoURI = "mongodb://mernfirstapp:OK7IkPOpEHPUkoYZ@ac-wjz4s2e-shard-00-00.zeyn9ki.mongodb.net:27017,ac-wjz4s2e-shard-00-01.zeyn9ki.mongodb.net:27017,ac-wjz4s2e-shard-00-02.zeyn9ki.mongodb.net:27017/foodapp?ssl=true&replicaSet=atlas-pdga9t-shard-0&authSource=admin&retryWrites=true&w=majority";
+
+
 mongoose.set('strictQuery', true);
 
 

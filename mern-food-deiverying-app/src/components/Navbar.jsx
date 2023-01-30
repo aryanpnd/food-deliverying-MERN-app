@@ -51,6 +51,13 @@ export default function Navbar() {
                     <Link className='' to="/login">
 
                         <button to="" className="btn btn-outline-success mx-2" type="submit">Login</button>
+
+                    </Link>
+
+                    <Link className='' to="/signup">
+
+                        <button to="" className="btn btn-outline-success mx-2" type="submit">Sign Up</button>
+
                     </Link>
 
 
