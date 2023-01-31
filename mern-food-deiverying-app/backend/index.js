@@ -3,6 +3,7 @@ const app = express()
 const port = 5000
 const mongodbConnect = require("./databaseConnetion")
 const user = require('./Routes/createUser')
+const availableItemsData = require('./Routes/displayData')
 
 mongodbConnect();
 
@@ -19,7 +20,10 @@ app.use((req, res, next) => {
 })     //must 
 
 app.use(express.json())
+
+
 app.use('/api', user)
+app.use('/api', availableItemsData)
 
 
 app.get('/', (req, res) => {

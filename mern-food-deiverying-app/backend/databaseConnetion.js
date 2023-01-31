@@ -8,17 +8,31 @@ const mongoURI = "mongodb+srv://mernfirstapp:OK7IkPOpEHPUkoYZ@cluster0.zeyn9ki.m
 mongoose.set('strictQuery', true);
 
 
-const mongodbConnect = async() => {
-    await mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true}, async (err,result) => {
+const mongodbConnect = async () => {
+    await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, result) => {
         if (err) {
             console.log(`----------${err}-----------`)
         }
-        else{
+        else {
             console.log("connected successfully");
             const fetched_data = await mongoose.connection.db.collection("store_available_items");
-            fetched_data.find({}).toArray(function(err,data) {
-                if(err) console.log(`----------${err}--------------`);
-                else console.log("data cathed successfully....")           
+            fetched_data.find({}).toArray(async function (err, data) {
+
+                const foodCatagory = await mongoose.connection.db.collection("foodCatagories");
+                foodCatagory.find({}).toArray(function (err, catagoryData) {
+
+                    if (err) console.log(`----------${err}--------------`);
+
+                    else {
+                        global.store_available_items = data
+                        global.foodCatagory = catagoryData
+                        // console.log(global.store_available_items)
+                        console.log("data cathed successfully....")
+                    }
+
+                })
+
+
             })
         }
     });

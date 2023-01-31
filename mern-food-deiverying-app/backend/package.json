@@ -9,8 +9,10 @@
   "author": "aryan",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "express-validator": "^6.14.3",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.13.15",
     "nodemon": "^2.0.20"
   }

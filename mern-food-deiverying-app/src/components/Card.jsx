@@ -1,24 +1,32 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card(props) {
+
+    let options = props.itemOptions
+    let orderOptions = Object.keys(options)
+
     return (
-        <div className="card my-5 mx-5 " style={{ width: '18rem' }}>
+        <div className="card my-5 mx-4 " style={{ width: '18rem' }}>
 
             <div className='p-2'>
-                <img src="https://static.toiimg.com/photo/msid-87930581/87930581.jpg" className="card-img-top" alt="..." />
+                <img src={props.itemImage} className=" img-thumbnail" alt="..."     />
             </div>
-            
+
             <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 className="card-title">{props.itemName}</h5>
+                <p className="card-text">{props.itemDescription}</p>
 
                 <div className="d-flex flex-row my-3">
 
                     <a href="#" className=" btn btn-primary" style={{ width: '10rem', fontSize: '0.8rem' }}>Add to Cart</a>
 
                     <select className="mx-2 btn btn-outline-warning" id="" style={{ width: '6.5rem' }}>
-                        <option value="half">half</option>
-                        <option value="full">full</option>
+                        {
+                            orderOptions.map((data)=>{
+
+                               return <option key={data} value={data}>{data}</option>
+                            })
+                        }
                     </select>
 
                 </div>

@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 
 export default function Login() {
+    const [isShownErrorAlert, setisShownErrorAlert] = useState(false);
+    const [isShownSuccessAlert, setisShownSuccessAlert] = useState(false);
 
     let Navigate = useNavigate("/")
 
@@ -16,10 +18,12 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(JSON.stringify({name: credentials.name,
+        console.log(JSON.stringify({
+            name: credentials.name,
             email: credentials.email,
             password: credentials.password,
-            location: credentials.geolocation}))
+            location: credentials.geolocation
+        }))
         let result = await fetch("http://localhost:5000/api/createuser", {
             method: "POST",
             headers: {
@@ -34,10 +38,17 @@ export default function Login() {
         });
         result = await result.json();
         if (!result.success) {
-            alert("Please Enter the Details Correctly!!");
+            setisShownErrorAlert(true)
+            setTimeout(() => {
+                setisShownErrorAlert(false)
+            }, 3000);
         }
         if (result.success) {
-            Navigate("/login")
+            setisShownSuccessAlert(true)
+            setTimeout(() => {
+                Navigate("/login")
+            }, 2000);
+            
         }
     }
 
@@ -46,7 +57,22 @@ export default function Login() {
     };
 
     return (
-        <div>
+        <>
+            {isShownErrorAlert &&
+                <div>
+                    <div className="alert alert-danger" role="alert">
+                        Please Enter the Details Correctly!!
+                    </div>
+                </div>
+            }
+
+            {isShownSuccessAlert &&
+                <div className="alert alert-success d-flex justify-content-center align-items-center" role="alert">
+                    <h4 className="alert-heading">Sign Up Successfully!!!</h4>
+                    <h4 className="alert-heading">Login to Proceed...</h4>
+                    
+                </div>
+            }
 
             <div className="vh-100 my-3 d-flex justify-content-center align-items-center ">
 
@@ -93,7 +119,7 @@ export default function Login() {
 
                 </div>
             </div>
+        </>
 
-        </div>
     )
 }
