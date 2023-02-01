@@ -1,4 +1,4 @@
-# NOTE backend is in inside this repo but the database is on mongodb cloud , authencation URL's may vary , replace with yours 
+# NOTE backend is inside this repo but the database is on mongodb cloud , authencation URLs may vary , replace them with yours 
 
 # Getting Started with Create React App
 
