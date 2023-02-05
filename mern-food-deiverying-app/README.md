@@ -1,3 +1,5 @@
+# NOTE backend is inside this repo but the database is on mongodb cloud , authencation URLs may vary , replace them with yours 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
