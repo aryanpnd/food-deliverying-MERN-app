@@ -1,0 +1,38 @@
+#loginSuccessScreenAnim{
+    animation: loginSuccessScreenAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes loginSuccessScreenAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+#OrderSuccessScreenAnim{
+    animation: OrderSuccessScreenAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes OrderSuccessScreenAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (min-width: 900px) { 
+	#OrderSuccessScreenAnim{
+		display: flex;
+		 justify-content: space-between;
+		/* align-items: center;  */
+	}
+ }

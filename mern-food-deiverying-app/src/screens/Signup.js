@@ -46,7 +46,7 @@ export default function Login() {
         if (result.success) {
             setisShownSuccessAlert(true)
             setTimeout(() => {
-                Navigate("/login")
+                Navigate("/home")
             }, 2000);
             
         }

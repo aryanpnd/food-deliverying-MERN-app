@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import './login.css';
+import './Screens.css';
 
 
 export default function Login() {
@@ -38,11 +38,11 @@ export default function Login() {
             if (result.success) {
                 // console.log(result)            
                 localStorage.setItem("authtoken", result.AuthToken)
-                console.log(localStorage.getItem("authtoken"))
-            }
-            if (result.success) {
+                localStorage.setItem("userEmail", credentials.email)
+                // console.log(localStorage.getItem("authtoken"))
+
                 setTimeout(() => {
-                    setIsShown(false);
+                    // setIsShown(false);
                     Navigate("/");
                 }, 2000);
                 setIsShown(true);

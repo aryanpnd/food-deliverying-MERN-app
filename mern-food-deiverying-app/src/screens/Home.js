@@ -10,6 +10,7 @@ export default function Home() {
 
     const [foodCatagory, setFoodCatagory] = useState([])
     const [foodItems, setFoodItems] = useState([])
+    const [itemSearch, setitemSearch] = useState("")
 
     const loadData = async () => {
 
@@ -37,12 +38,24 @@ export default function Home() {
     return (
         <div>
 
-            <div >
+            <div className=''>
                 <Navbar />
 
-                <Carousal />
+                {/* <Carousal /> */}
 
-                <div className="row gx-0">
+                <div className="container p-5 ">
+
+                <div className=" " style={{ zIndex: "10" }}>
+                    <div className="d-flex justify-content-center align-items-center" role="search">
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e)=>{setitemSearch(e.target.value)}} />
+                        {/* <button className="btn btn-warning" type="submit">Search</button> */}
+
+                    </div>
+                </div>
+                </div>
+
+
+                <div className="row gx-0 px-4 d-flex justify-content-center align-items-center ">
 
                     {
                         foodCatagory !== [] ?
@@ -62,10 +75,13 @@ export default function Home() {
                                             foodItems !== [] ?
 
                                                 foodItems.filter((items) =>
-                                                    items.CategoryName === data.CategoryName).map((filterItems) => {
+                                                    items.CategoryName === data.CategoryName && (
+                                                        items.name.toLowerCase().includes(itemSearch.toLowerCase())
+                                                        )
+                                                    ).map((filterItems) => {
 
                                                         return (
-                                                            <Card itemName={filterItems.name} itemImage={filterItems.img} itemDescription={filterItems.description} itemOptions={filterItems.options[0]} />
+                                                            <Card key={filterItems._id} foodItems={filterItems} itemOptions={filterItems.options[0]} />
                                                         )
                                                     })
                                                 :
