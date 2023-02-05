@@ -27,7 +27,7 @@ export default function Navbar() {
                     </button>
 
 
-                    <Link className="navbar-brand" to="/">Navbar</Link>
+                    <Link className="navbar-brand" to="/">Food Corner</Link>
 
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
